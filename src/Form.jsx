@@ -13,6 +13,9 @@ const Form = () => {
         <input type="date"></input>
         <input type="submit" value="Submit" />
       </form>
+      <div>
+        <input type="search" placeholder="Search expenses" />
+      </div>
     </div>
   );
 };
