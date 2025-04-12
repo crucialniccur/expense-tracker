@@ -15,6 +15,22 @@ const Form = () => {
       </form>
       <div>
         <input type="search" placeholder="Search expenses" />
+        <table>
+          <tr>
+            <th>Expense</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+          <tr>
+            <td>Lorem Expense</td>
+            <td>Lorem Description</td>
+            <td>Lorem category</td>
+            <td>Lorem Amount</td>
+            <td>Lorem date</td>
+          </tr>
+        </table>
       </div>
     </div>
   );
