@@ -5,10 +5,10 @@ const Header = () => {
     <div>
       <header>
         <h1>Expense Tracker</h1>
-        <p>
+        <span>
           Start taking control of your finances and life.Record ,categorize and
           analyze your spending.
-        </p>
+        </span>
       </header>
     </div>
   );
