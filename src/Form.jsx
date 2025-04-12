@@ -13,7 +13,7 @@ const Form = () => {
         <input type="date"></input>
         <input type="submit" value="Submit" />
       </form>
-      <div>
+      <div className="tableList">
         <input type="search" placeholder="Search expenses" />
         <table>
           <thead>
