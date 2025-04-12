@@ -16,20 +16,24 @@ const Form = () => {
       <div>
         <input type="search" placeholder="Search expenses" />
         <table>
-          <tr>
-            <th>Expense</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Date</th>
-          </tr>
-          <tr>
-            <td>Lorem Expense</td>
-            <td>Lorem Description</td>
-            <td>Lorem category</td>
-            <td>Lorem Amount</td>
-            <td>Lorem date</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Expense</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorem Expense</td>
+              <td>Lorem Description</td>
+              <td>Lorem category</td>
+              <td>Lorem Amount</td>
+              <td>Lorem date</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
