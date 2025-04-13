@@ -2,6 +2,17 @@ import React from "react";
 import { useState } from "react";
 
 const Form = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    category: "",
+    amount: "",
+    date: "",
+  });
+
+  const [expenses, setExpenses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <div>
       <section>
