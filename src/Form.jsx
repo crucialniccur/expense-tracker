@@ -18,6 +18,18 @@ const Form = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setExpenses((previous) => [...previous, formData]);
+    setFormData({
+      name: "",
+      description: "",
+      category: "",
+      amount: "",
+      date: "",
+    });
+  }
+
   return (
     <div>
       <section>
