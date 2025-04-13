@@ -30,21 +30,53 @@ const Form = () => {
     });
   }
 
+  function handleSearch(e) {
+    setSearchTerm(e.target.value);
+  }
+
   return (
     <div>
       <section>
-        <form onClick={handleSubmit} onChange={handleChange}>
+        <form onSubmit={handleSubmit} onChange={handleChange}>
           <h2>Add Expense</h2>
           <p>Enter your expense details below</p>
-          <input type="text" placeholder="Enter expense name"></input>
-          <input type="text" placeholder="Enter expense description"></input>
-          <input type="text" placeholder="Enter expense category"></input>
-          <input type="number" placeholder="Enter amount"></input>
-          <input type="date"></input>
+          <input
+            type="text"
+            placeholder="Enter expense name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Enter expense description"
+            value={formData.description}
+            name="description"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Enter expense category"
+            name="category"
+            onChange={handleChange}
+            value={formData.category}
+          />
+          <input
+            type="number"
+            placeholder="Enter amount"
+            value={formData.value}
+            name="amount"
+          />
+          <input type="date" />
           <input type="submit" value="Submit" />
         </form>
         <div className="tableList">
-          <input type="search" placeholder="Search expenses" />
+          <input
+            type="search"
+            placeholder="Search expenses"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
           <table>
             <thead>
               <tr>
@@ -56,13 +88,21 @@ const Form = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Lorem Expense</td>
-                <td>Lorem Description</td>
-                <td>Lorem category</td>
-                <td>Lorem Amount</td>
-                <td>Lorem date</td>
-              </tr>
+              {expenses
+                .filter(
+                  (expense) =>
+                    expense.name.toLowerCase().includes(searchTerm) ||
+                    expense.description.toLowerCase().includes(searchTerm)
+                )
+                .map((expense, index) => (
+                  <tr key={index}>
+                    <td>{expense.name}</td>
+                    <td>{expense.description}</td>
+                    <td>{expense.category}</td>
+                    <td>{expense.amount}</td>
+                    <td>{expense.date}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
