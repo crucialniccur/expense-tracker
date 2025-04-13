@@ -1,10 +1,11 @@
 import React from "react";
+import { useState } from "react";
 
 const Form = () => {
   return (
     <div>
       <section>
-        <form>
+        <form onClick={handleSubmit} onChange={handleChange}>
           <h2>Add Expense</h2>
           <p>Enter your expense details below</p>
           <input type="text" placeholder="Enter expense name"></input>
