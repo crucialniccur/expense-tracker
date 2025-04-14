@@ -34,6 +34,12 @@ const Form = () => {
     setSearchTerm(e.target.value);
   }
 
+  const handleDelete = (deleteIndex) => {
+    setExpenses((prevExpenses) =>
+      prevExpenses.filter((_, index) => index !== deleteIndex)
+    );
+  };
+
   return (
     <div>
       <section>
@@ -89,11 +95,13 @@ const Form = () => {
             </thead>
             <tbody>
               {expenses
-                .filter(
-                  (expense) =>
-                    expense.name.toLowerCase().includes(searchTerm) ||
-                    expense.description.toLowerCase().includes(searchTerm)
-                )
+                .filter((expense) => {
+                  if (!searchTerm) return true;
+                  return (
+                    expense.name === searchTerm ||
+                    expense.description === searchTerm
+                  );
+                })
                 .map((expense, index) => (
                   <tr key={index}>
                     <td>{expense.name}</td>
@@ -101,6 +109,11 @@ const Form = () => {
                     <td>{expense.category}</td>
                     <td>{expense.amount}</td>
                     <td>{expense.date}</td>
+                    <td>
+                      <button onClick={() => handleDelete(index)}>
+                        Delete task
+                      </button>
+                    </td>
                   </tr>
                 ))}
             </tbody>
